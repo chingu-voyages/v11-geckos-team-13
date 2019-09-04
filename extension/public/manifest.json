@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "extension",
+  "author": "v11-geckos-team13",
+  "version": "0.0.1",
+  "description": "Do awesome stuff",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
