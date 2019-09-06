@@ -1,2 +1,8 @@
-# v11-geckos-team-13
-Add-project-description-here | Voyage-11 | https://chingu.io/ | Twitter: https://twitter.com/ChinguCollabs
+React-powered home tab extension
+
+To test in development, run  
+`npm run build`  
+[load](https://support.google.com/chrome/a/answer/2714278?hl=en) the `build` folder as an extension
+
+
+
