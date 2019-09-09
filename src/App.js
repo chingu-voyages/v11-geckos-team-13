@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import Currency from './Currency';
 
+var CurrencyKey = process.env.REACT_APP_CURRENCY_API_KEY;
 function App() {
   return (
-    <div className="App">
-      <h1>App goes here</h1>
+    <div>
+      <Currency API_KEY = {CurrencyKey}/>
     </div>
   );
 }
