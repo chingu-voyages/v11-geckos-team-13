@@ -14,7 +14,8 @@ class Currency extends Component {
       two : '',
       amount: '',
       result: '',
-      allCurrencies: {}
+      allCurrencies: {},
+      swap: false
     }
 
   }
@@ -70,6 +71,31 @@ class Currency extends Component {
  }
 
 
+ handleSwap = () =>{
+   this.state.swap = !this.state.swap;
+   if(this.state.swap === false){
+     this.handleClick();
+   }else{
+     var format = this.state.two + "_" + this.state.one
+     var link = "https://free.currconv.com/api/v7/convert?q=" + this.state.two +"_" + this.state.one + "," + this.state.one + "_" + this.state.two+ "&compact=ultra&apiKey=" +this.props.API_KEY;
+     fetch(link)
+       .then(response=>{
+         return response.json();
+       })
+       .then(myJson=>{
+         return myJson[format];
+       })
+       .then(price=>{
+         price*=this.state.amount;
+
+
+         this.setState({ result: this.state.amount + " " + this.state.two + " = " + price + " " + this.state.one })
+
+       });
+   }
+
+
+ }
 
 
 
@@ -107,6 +133,7 @@ class Currency extends Component {
         <input placeholder = "Enter amount" type="text" id="amount" onChange={this.updateAmount}/>
 
         <button type="button" onClick={this.handleClick}>Get Value</button>
+        <button type="button" onClick={this.handleSwap}>Swap</button>
 
         <h1>{this.state.result}</h1>
 
