@@ -6,4 +6,3 @@ To test in development, run
 
 
 
-The api used for currency converter [link](https://www.currencyconverterapi.com)

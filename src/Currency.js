@@ -1,6 +1,7 @@
 
 
 import React, { Component } from 'react';
+import './card.css'
 
 
 
@@ -103,8 +104,9 @@ class Currency extends Component {
 
     const {allCurrencies} = this.state;
     return(
-      <div>
-        <select onChange={this.updateFirst}>
+      <div className = "card container">
+        <h2>Currency Converter</h2>
+        <select className="list" onChange={this.updateFirst}>
           {
             Object.keys(allCurrencies).map(function(i) {
                 return(
@@ -117,12 +119,12 @@ class Currency extends Component {
 
           }
         </select>
-        <select onChange={this.updateSecond}>
+        <select className="list" onChange={this.updateSecond}>
           {
             Object.keys(allCurrencies).map(function(i) {
                 return(
 
-                  <option key = {allCurrencies[i].id} value={allCurrencies[i].id}>{allCurrencies[i].id}</option>
+                  <option className="single" key = {allCurrencies[i].id} value={allCurrencies[i].id}>{allCurrencies[i].id}</option>
 
               );
             })
@@ -130,12 +132,12 @@ class Currency extends Component {
 
           }
         </select>
-        <input placeholder = "Enter amount" type="text" id="amount" onChange={this.updateAmount}/>
+        <input placeholder = "Enter amount" type="text" id="amount" onChange={this.updateAmount}/ >
 
-        <button type="button" onClick={this.handleClick}>Get Value</button>
-        <button type="button" onClick={this.handleSwap}>Swap</button>
+        <button className="button" type="button" onClick={this.handleClick}>Get Value</button>
+        <button className="button" type="button" onClick={this.handleSwap}>Swap</button>
 
-        <h1>{this.state.result}</h1>
+        <h4>{this.state.result}</h4>
 
 
       </div>
