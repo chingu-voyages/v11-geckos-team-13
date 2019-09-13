@@ -6,9 +6,10 @@ const DISCOVERY_DOCS = [
 ];
 const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
 
-export default function GoogleCalendar(props) {
-  const { CLIENT_ID, API_KEY } = props;
+const CLIENT_ID = process.env.REACT_APP_GOOGLE_CALENDAR_CLIENT_ID;
+const API_KEY = process.env.REACT_APP_GOOGLE_CALENDAR_API_KEY;
 
+export default function GoogleCalendar() {
   const [events, setEvents] = useState([]);
   const [isUserSignedIn, setUserSignedIn] = useState(false);
 
@@ -46,7 +47,7 @@ export default function GoogleCalendar(props) {
     };
 
     handleClientLoad();
-  }, [API_KEY, CLIENT_ID]);
+  }, []);
 
   useEffect(() => {
     if (isUserSignedIn) {

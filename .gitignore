@@ -3,3 +3,6 @@ build/
 
 # VSCode workspace settings
 .vscode/
+
+# Dotenv file (example file is tracked instead)
+.env
