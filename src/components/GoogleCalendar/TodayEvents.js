@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './TodayEvents.css';
 
-export default function TodayEvents(props) {
+function TodayEvents(props) {
   const { events } = props;
   return (
     <div className="TodayEvents-container">
@@ -27,3 +28,17 @@ export default function TodayEvents(props) {
     </div>
   );
 }
+
+TodayEvents.propTypes = {
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      summary: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      start: PropTypes.shape.isRequired,
+      end: PropTypes.shape.isRequired
+    })
+  ).isRequired
+};
+
+export default TodayEvents;
