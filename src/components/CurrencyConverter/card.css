@@ -1,0 +1,75 @@
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin-left: 20px;
+  height: 260px;
+  float: left;
+  width: 25%;
+  padding: 0px 50px 50px 50px;
+background-image: linear-gradient(to left, #169240, #369937, #4fa02d, #65a71f, #7cad09);
+  border-radius: 25px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+
+  .button {
+      border-radius: 25px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+
+.button:hover {
+  background-color: #3c70a4;
+ color: white;
+}
+
+input[type=text] {
+    border-radius: 25px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.list{
+    border-radius: 25px;
+  height : 30px;
+  width: 50%;
+
+}
+
+h2{
+  font-size: 26px;
+  text-align: center;
+  margin: 15px;
+    font-family: 'Tourmaline Printed';
+    color: #fefdca;
+}
+
+h4 {
+  font-size: 18px;
+  text-align: center;
+  margin: 3px;
+  color: Yellow;
+}
