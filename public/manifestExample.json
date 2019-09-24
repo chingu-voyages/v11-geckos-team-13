@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "extension",
+  "author": "v11-geckos-team13",
+  "version": "0.0.1",
+  "description": "Do awesome stuff",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "content_security_policy": "script-src 'self' https://apis.google.com/; object-src 'self'",
+  "oauth2": {
+    "client_id": "YOUR-CLIENT-ID.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar"
+    ]
+  },
+  "permissions": [
+    "identity"
+  ]
+}
