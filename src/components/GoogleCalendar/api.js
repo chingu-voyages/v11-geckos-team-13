@@ -59,8 +59,21 @@ export const getCalendarList = async token => {
     Authorization: `Bearer ${token}`,
     Accept: 'application/json'
   };
+
   const timeMin = new Date().toISOString();
-  const url = `https://www.googleapis.com/calendar/v3/calendars/primary/events?key=${API_KEY}&timeMin=${timeMin}`;
+  const showDeleted = false;
+  const singleEvents = true;
+  const maxResults = 10;
+  const orderBy = 'startTime';
+
+  const url =
+    'https://www.googleapis.com/calendar/v3/calendars/primary/events?' +
+    `key=${API_KEY}` +
+    `&timeMin=${timeMin}` +
+    `&showDeleted=${showDeleted}` +
+    `&singleEvents=${singleEvents}` +
+    `&maxResults=${maxResults}` +
+    `&orderBy=${orderBy}`;
 
   const response = await axios.get(url, { headers });
   return response;
