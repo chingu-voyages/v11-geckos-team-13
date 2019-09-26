@@ -44,6 +44,16 @@ export const getTokenFromWebApp = async () => {
   return GoogleAuth.currentUser.get().getAuthResponse().access_token;
 };
 
+export const getToken = async () => {
+  if (isAppLoadedAsExtension()) {
+    const extensionToken = await getTokenFromExtension();
+    return extensionToken;
+  }
+
+  const webAppToken = await getTokenFromWebApp();
+  return webAppToken;
+};
+
 export const getCalendarList = async token => {
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -53,6 +63,5 @@ export const getCalendarList = async token => {
   const url = `https://www.googleapis.com/calendar/v3/calendars/primary/events?key=${API_KEY}&timeMin=${timeMin}`;
 
   const response = await axios.get(url, { headers });
-  console.log(response);
   return response;
 };
