@@ -3,3 +3,13 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+
+
+
+.header{
+  text-align: center;
+  font-size: 80px;
+  margin: 20px;
+  color: #464159;
+}
