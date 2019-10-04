@@ -8,27 +8,33 @@ import GoogleCalendar from './GoogleCalendar/GoogleCalendar';
 import Search from './Search/Search';
 import CurrencyConverter from './CurrencyConverter/Currency';
 import Weather from './Weather/Weather';
+import WeatherMultiple from './Weather/WeatherMultiple';
+import Pomodoro from './Pomodoro/Pomodoro';
 import './card.css';
+import banner from '../app_banner.jpeg';
 
 const CurrencyKey = process.env.REACT_APP_CURRENCY_API_KEY;
 const WeatherKey = process.env.REACT_APP_WEATHER_API_KEY;
 const IpKey = process.env.REACT_APP_IP_KEY;
 
 function App() {
-  const link = 'hello internet';
   return (
-    <div>
-      <TestState>
-        <StateReceiver />
-        <Search />
-        <div className="App">
-          <h1>App goes here</h1>
-          <a href={`https://google.com/search?q=${link}`}>Link to google</a>
-          <GoogleCalendar />
-        </div>
-      </TestState>
-      <CurrencyConverter API_KEY={CurrencyKey} />
-      <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
+    <div className="App">
+      <img src={banner} alt="banner" className="App-banner" />
+      <Weather className="App-Weather" />
+      <Search className="App-Search" />
+      <div className="App-features-grid">
+        <CurrencyConverter API_KEY={CurrencyKey} />
+        <Pomodoro />
+        <GoogleCalendar />
+      </div>
+
+      <WeatherMultiple IP_KEY={IpKey} API_KEY={WeatherKey} />
+      <div className="App-react-context">
+        <TestState>
+          <StateReceiver />
+        </TestState>
+      </div>
     </div>
   );
 }

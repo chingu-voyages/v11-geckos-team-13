@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from '../Card/Card';
 import TodayEvents from './TodayEvents';
 
 import { getToken, getCalendarList } from './api';
@@ -20,11 +21,11 @@ export default function GoogleCalendar() {
   };
 
   return (
-    <div>
+    <Card>
       <button type="button" onClick={handleLoadCalendarClick}>
         Load calendar
       </button>
       {token !== '' && <TodayEvents events={events} />}
-    </div>
+    </Card>
   );
 }
