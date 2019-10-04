@@ -3,3 +3,16 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.App-banner {
+  width: 100%;
+  height: 400px;
+  object-fit: none;
+}
+
+.App-Search {
+  text-align: center;
+  color: blue;
+  position: relative;
+  top: -25px;
+}

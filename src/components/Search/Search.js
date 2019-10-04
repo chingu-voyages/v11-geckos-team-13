@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
+import { PropTypes } from 'prop-types';
+import './Search.css';
 
-const Search = () => {
+const Search = props => {
+  const { className } = props;
   const query = useRef(null);
   const isUrl = () => {
     // Check if query is valid URL
@@ -20,11 +23,15 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={className}>
       <input type="search" id="search" ref={query} />
       <input type="submit" value="Search" />
     </form>
   );
+};
+
+Search.propTypes = {
+  className: PropTypes.string.isRequired
 };
 
 export default Search;
