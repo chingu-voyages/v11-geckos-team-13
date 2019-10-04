@@ -20,9 +20,11 @@ function App() {
     <div className="App">
       <img src={banner} alt="banner" className="App-banner" />
       <Search className="App-Search" />
-      <GoogleCalendar />
-      <CurrencyConverter API_KEY={CurrencyKey} />
-      <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
+      <div className="App-features-grid">
+        <CurrencyConverter API_KEY={CurrencyKey} />
+        <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
+        <GoogleCalendar />
+      </div>
 
       <div className="App-react-context">
         <TestState>
