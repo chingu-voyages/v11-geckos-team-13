@@ -25,4 +25,11 @@ body {
 .App-features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  height: 400px;
+}
+
+.App-features-grid > .Card {
+  width: calc(100% - 30px);
+  overflow-y: scroll;
 }
