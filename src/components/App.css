@@ -33,3 +33,12 @@ body {
   width: calc(100% - 30px);
   overflow-y: scroll;
 }
+
+.App-Weather.Card {
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  height: 300px;
+  width: 500px;
+  opacity: 0.8;
+}
