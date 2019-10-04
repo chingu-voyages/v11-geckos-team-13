@@ -82,7 +82,9 @@ class Weather extends Component {
 
   render() {
     const { defaultTemperature, defaultWindSpeed, result } = this.state;
-
+    function modify(user, i) {
+      return i % 3 === 0;
+    }
     return (
       <div>
         <select className="list" onChange={this.updateTemp}>
@@ -95,667 +97,16 @@ class Weather extends Component {
           <option value="km/h">km/h</option>
         </select>
 
-        {result
-          .filter((user, i) => i % 3 === 0)
-          .map((user, i) => {
-            if (i === 0) {
-              if (defaultTemperature && defaultWindSpeed) {
-                if (result[i].icon === 'clear-day') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Clear day icon"
-                        src={ClearDay}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'clear-night') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Clear night icon"
-                        src={ClearNight}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'cloud') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Cloud icon"
-                        src={Cloud}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'fog') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img height="150" width="150" alt="Fog icon" src={Fog} />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'partly-cloudy-day') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Partly cloudy day icon"
-                        src={PartlyCloudyDay}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'partly-cloudy-night') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Partly cloudy night icon"
-                        src={PartlyCloudyNight}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'rain') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Rain icon"
-                        src={Rain}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'wind') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Wind icon"
-                        src={Wind}
-                      />
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Snow icon"
-                      src={SnowSleet}
-                    />
-                  </div>
-                );
-              }
-              if (!defaultTemperature && defaultWindSpeed) {
-                if (result[i].icon === 'clear-day') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Clear day icon"
-                        src={ClearDay}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'clear-night') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Clear night icon"
-                        src={ClearNight}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'cloud') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Cloud icon"
-                        src={Cloud}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'fog') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <img height="150" width="150" alt="Fog icon" src={Fog} />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'partly-cloudy-day') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Partly cloudy day icon"
-                        src={PartlyCloudyDay}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'partly-cloudy-night') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Partly cloudy night icon"
-                        src={PartlyCloudyNight}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'rain') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Rain icon"
-                        src={Rain}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'wind') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>
-                        tempreature:{' '}
-                        {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                      </h3>
-                      <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Wind icon"
-                        src={Wind}
-                      />
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Snow icon"
-                      src={SnowSleet}
-                    />
-                  </div>
-                );
-              }
-              if (defaultTemperature && !defaultWindSpeed) {
-                if (result[i].icon === 'clear-day') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Clear day icon"
-                        src={ClearDay}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'clear-night') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Clear night icon"
-                        src={ClearNight}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'cloud') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Cloud icon"
-                        src={Cloud}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'fog') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img height="150" width="150" alt="Fog icon" src={Fog} />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'partly-cloudy-day') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Partly cloudy day icon"
-                        src={PartlyCloudyDay}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'partly-cloudy-night') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Partly cloudy night icon"
-                        src={PartlyCloudyNight}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'rain') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Rain icon"
-                        src={Rain}
-                      />
-                    </div>
-                  );
-                }
-                if (result[i].icon === 'wind') {
-                  return (
-                    <div key={result[i].time} className="card container">
-                      <h3>Weather now</h3>
-                      <h3>icon: {result[i].icon}</h3>
-                      <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                      <h3>
-                        wind speed: {(result[i].windSpeed * 3.6).toFixed(2)}{' '}
-                        km/h
-                      </h3>
-                      <img
-                        height="150"
-                        width="150"
-                        alt="Wind icon"
-                        src={Wind}
-                      />
-                    </div>
-                  );
-                }
-
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Snow icon"
-                      src={SnowSleet}
-                    />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'clear-day') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Clear day icon"
-                      src={ClearDay}
-                    />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'clear-night') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Clear night icon"
-                      src={ClearNight}
-                    />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'cloud') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Cloud icon"
-                      src={Cloud}
-                    />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'fog') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img height="150" width="150" alt="Fog icon" src={Fog} />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'partly-cloudy-day') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Partly cloudy day icon"
-                      src={PartlyCloudyDay}
-                    />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'partly-cloudy-night') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img
-                      height="150"
-                      width="150"
-                      alt="Partly cloudy night icon"
-                      src={PartlyCloudyNight}
-                    />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'rain') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img height="150" width="150" alt="Rain icon" src={Rain} />
-                  </div>
-                );
-              }
-              if (result[i].icon === 'wind') {
-                return (
-                  <div key={result[i].time} className="card container">
-                    <h3>Weather now</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
-                    </h3>
-                    <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                    </h3>
-                    <img height="150" width="150" alt="Wind icon" src={Wind} />
-                  </div>
-                );
-              }
-
-              return (
-                <div key={result[i].time} className="card container">
-                  <h3>Weather now</h3>
-                  <h3>icon: {result[i].icon}</h3>
-                  <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
-                  </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
-                  <img
-                    height="150"
-                    width="150"
-                    alt="Snow icon"
-                    src={SnowSleet}
-                  />
-                </div>
-              );
-            }
+        {result.filter(modify).map((user, i) => {
+          if (i === 0) {
             if (defaultTemperature && defaultWindSpeed) {
-              if (result[i].icon === 'clear-day') {
+              if (user.icon === 'clear-day') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -765,13 +116,13 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'clear-night') {
+              if (user.icon === 'clear-night') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -781,13 +132,13 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'cloud') {
+              if (user.icon === 'cloud') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -797,24 +148,24 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'fog') {
+              if (user.icon === 'fog') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img height="150" width="150" alt="Fog icon" src={Fog} />
                   </div>
                 );
               }
-              if (result[i].icon === 'partly-cloudy-day') {
+              if (user.icon === 'partly-cloudy-day') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -824,13 +175,13 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'partly-cloudy-night') {
+              if (user.icon === 'partly-cloudy-night') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -840,35 +191,35 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'rain') {
+              if (user.icon === 'rain') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img height="150" width="150" alt="Rain icon" src={Rain} />
                   </div>
                 );
               }
-              if (result[i].icon === 'wind') {
+              if (user.icon === 'wind') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img height="150" width="150" alt="Wind icon" src={Wind} />
                   </div>
                 );
               }
 
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
-                  <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
-                  <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                   <img
                     height="150"
                     width="150"
@@ -879,16 +230,15 @@ class Weather extends Component {
               );
             }
             if (!defaultTemperature && defaultWindSpeed) {
-              if (result[i].icon === 'clear-day') {
+              if (user.icon === 'clear-day') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -898,16 +248,15 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'clear-night') {
+              if (user.icon === 'clear-night') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -917,16 +266,15 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'cloud') {
+              if (user.icon === 'cloud') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -936,29 +284,27 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'fog') {
+              if (user.icon === 'fog') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
                     <img height="150" width="150" alt="Fog icon" src={Fog} />
                   </div>
                 );
               }
-              if (result[i].icon === 'partly-cloudy-day') {
+              if (user.icon === 'partly-cloudy-day') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -968,16 +314,15 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'partly-cloudy-night') {
+              if (user.icon === 'partly-cloudy-night') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img
                       height="150"
                       width="150"
@@ -987,44 +332,41 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'rain') {
+              if (user.icon === 'rain') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img height="150" width="150" alt="Rain icon" src={Rain} />
                   </div>
                 );
               }
-              if (result[i].icon === 'wind') {
+              if (user.icon === 'wind') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
                     <h3>
-                      tempreature:{' '}
-                      {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                      tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                     </h3>
-                    <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                    <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                     <img height="150" width="150" alt="Wind icon" src={Wind} />
                   </div>
                 );
               }
 
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>wind speed: {result[i].windSpeed.toFixed(2)} m/s</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
                   <img
                     height="150"
                     width="150"
@@ -1035,14 +377,14 @@ class Weather extends Component {
               );
             }
             if (defaultTemperature && !defaultWindSpeed) {
-              if (result[i].icon === 'clear-day') {
+              if (user.icon === 'clear-day') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img
                       height="150"
@@ -1053,14 +395,14 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'clear-night') {
+              if (user.icon === 'clear-night') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img
                       height="150"
@@ -1071,14 +413,14 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'cloud') {
+              if (user.icon === 'cloud') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img
                       height="150"
@@ -1089,27 +431,27 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'fog') {
+              if (user.icon === 'fog') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img height="150" width="150" alt="Fog icon" src={Fog} />
                   </div>
                 );
               }
-              if (result[i].icon === 'partly-cloudy-day') {
+              if (user.icon === 'partly-cloudy-day') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img
                       height="150"
@@ -1120,14 +462,14 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'partly-cloudy-night') {
+              if (user.icon === 'partly-cloudy-night') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img
                       height="150"
@@ -1138,27 +480,27 @@ class Weather extends Component {
                   </div>
                 );
               }
-              if (result[i].icon === 'rain') {
+              if (user.icon === 'rain') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img height="150" width="150" alt="Rain icon" src={Rain} />
                   </div>
                 );
               }
-              if (result[i].icon === 'wind') {
+              if (user.icon === 'wind') {
                 return (
-                  <div key={result[i].time} className="card container">
-                    <h3>After {i * 3} hours</h3>
-                    <h3>icon: {result[i].icon}</h3>
-                    <h3>tempreature: {result[i].temperature.toFixed(2)} C</h3>
+                  <div key={user.time} className="card container">
+                    <h3>Weather now</h3>
+                    <h3>icon: {user.icon}</h3>
+                    <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                     <h3>
-                      wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
+                      wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h
                     </h3>
                     <img height="150" width="150" alt="Wind icon" src={Wind} />
                   </div>
@@ -1166,16 +508,13 @@ class Weather extends Component {
               }
 
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img
                     height="150"
                     width="150"
@@ -1185,18 +524,15 @@ class Weather extends Component {
                 </div>
               );
             }
-            if (result[i].icon === 'clear-day') {
+            if (user.icon === 'clear-day') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img
                     height="150"
                     width="150"
@@ -1206,18 +542,15 @@ class Weather extends Component {
                 </div>
               );
             }
-            if (result[i].icon === 'clear-night') {
+            if (user.icon === 'clear-night') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img
                     height="150"
                     width="150"
@@ -1227,50 +560,41 @@ class Weather extends Component {
                 </div>
               );
             }
-            if (result[i].icon === 'cloud') {
+            if (user.icon === 'cloud') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img height="150" width="150" alt="Cloud icon" src={Cloud} />
                 </div>
               );
             }
-            if (result[i].icon === 'fog') {
+            if (user.icon === 'fog') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img height="150" width="150" alt="Fog icon" src={Fog} />
                 </div>
               );
             }
-            if (result[i].icon === 'partly-cloudy-day') {
+            if (user.icon === 'partly-cloudy-day') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img
                     height="150"
                     width="150"
@@ -1280,18 +604,15 @@ class Weather extends Component {
                 </div>
               );
             }
-            if (result[i].icon === 'partly-cloudy-night') {
+            if (user.icon === 'partly-cloudy-night') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img
                     height="150"
                     width="150"
@@ -1301,53 +622,559 @@ class Weather extends Component {
                 </div>
               );
             }
-            if (result[i].icon === 'rain') {
+            if (user.icon === 'rain') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img height="150" width="150" alt="Rain icon" src={Rain} />
                 </div>
               );
             }
-            if (result[i].icon === 'wind') {
+            if (user.icon === 'wind') {
               return (
-                <div key={result[i].time} className="card container">
-                  <h3>After {i * 3} hours</h3>
-                  <h3>icon: {result[i].icon}</h3>
+                <div key={user.time} className="card container">
+                  <h3>Weather now</h3>
+                  <h3>icon: {user.icon}</h3>
                   <h3>
-                    tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)}{' '}
-                    F
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
-                  <h3>
-                    wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                  </h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                   <img height="150" width="150" alt="Wind icon" src={Wind} />
                 </div>
               );
             }
 
             return (
-              <div key={result[i].time} className="card container">
-                <h3>After {i * 3} hours</h3>
-                <h3>icon: {result[i].icon}</h3>
+              <div key={user.time} className="card container">
+                <h3>Weather now</h3>
+                <h3>icon: {user.icon}</h3>
                 <h3>
-                  tempreature: {(result[i].temperature * 1.8 + 32).toFixed(2)} F
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                 </h3>
-                <h3>
-                  wind speed: {(result[i].windSpeed * 3.6).toFixed(2)} km/h
-                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
                 <img height="150" width="150" alt="Snow icon" src={SnowSleet} />
               </div>
             );
-          })}
+          }
+          if (defaultTemperature && defaultWindSpeed) {
+            if (user.icon === 'clear-day') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Clear day icon"
+                    src={ClearDay}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'clear-night') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Clear night icon"
+                    src={ClearNight}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'cloud') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                </div>
+              );
+            }
+            if (user.icon === 'fog') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Fog icon" src={Fog} />
+                </div>
+              );
+            }
+            if (user.icon === 'partly-cloudy-day') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Partly cloudy day icon"
+                    src={PartlyCloudyDay}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'partly-cloudy-night') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Partly cloudy night icon"
+                    src={PartlyCloudyNight}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'rain') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Rain icon" src={Rain} />
+                </div>
+              );
+            }
+            if (user.icon === 'wind') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Wind icon" src={Wind} />
+                </div>
+              );
+            }
+
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                <img height="150" width="150" alt="Snow icon" src={SnowSleet} />
+              </div>
+            );
+          }
+          if (!defaultTemperature && defaultWindSpeed) {
+            if (user.icon === 'clear-day') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Clear day icon"
+                    src={ClearDay}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'clear-night') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Clear night icon"
+                    src={ClearNight}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'cloud') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                </div>
+              );
+            }
+            if (user.icon === 'fog') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <img height="150" width="150" alt="Fog icon" src={Fog} />
+                </div>
+              );
+            }
+            if (user.icon === 'partly-cloudy-day') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Partly cloudy day icon"
+                    src={PartlyCloudyDay}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'partly-cloudy-night') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Partly cloudy night icon"
+                    src={PartlyCloudyNight}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'rain') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Rain icon" src={Rain} />
+                </div>
+              );
+            }
+            if (user.icon === 'wind') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>
+                    tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                  </h3>
+                  <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                  <img height="150" width="150" alt="Wind icon" src={Wind} />
+                </div>
+              );
+            }
+
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
+                <img height="150" width="150" alt="Snow icon" src={SnowSleet} />
+              </div>
+            );
+          }
+          if (defaultTemperature && !defaultWindSpeed) {
+            if (user.icon === 'clear-day') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Clear day icon"
+                    src={ClearDay}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'clear-night') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Clear night icon"
+                    src={ClearNight}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'cloud') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                </div>
+              );
+            }
+            if (user.icon === 'fog') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img height="150" width="150" alt="Fog icon" src={Fog} />
+                </div>
+              );
+            }
+            if (user.icon === 'partly-cloudy-day') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Partly cloudy day icon"
+                    src={PartlyCloudyDay}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'partly-cloudy-night') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img
+                    height="150"
+                    width="150"
+                    alt="Partly cloudy night icon"
+                    src={PartlyCloudyNight}
+                  />
+                </div>
+              );
+            }
+            if (user.icon === 'rain') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img height="150" width="150" alt="Rain icon" src={Rain} />
+                </div>
+              );
+            }
+            if (user.icon === 'wind') {
+              return (
+                <div key={user.time} className="card container">
+                  <h3>After {i * 3} hours</h3>
+                  <h3>icon: {user.icon}</h3>
+                  <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
+                  <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                  <img height="150" width="150" alt="Wind icon" src={Wind} />
+                </div>
+              );
+            }
+
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img height="150" width="150" alt="Snow icon" src={SnowSleet} />
+              </div>
+            );
+          }
+          if (user.icon === 'clear-day') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img
+                  height="150"
+                  width="150"
+                  alt="Clear day icon"
+                  src={ClearDay}
+                />
+              </div>
+            );
+          }
+          if (user.icon === 'clear-night') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img
+                  height="150"
+                  width="150"
+                  alt="Clear night icon"
+                  src={ClearNight}
+                />
+              </div>
+            );
+          }
+          if (user.icon === 'cloud') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+              </div>
+            );
+          }
+          if (user.icon === 'fog') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img height="150" width="150" alt="Fog icon" src={Fog} />
+              </div>
+            );
+          }
+          if (user.icon === 'partly-cloudy-day') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img
+                  height="150"
+                  width="150"
+                  alt="Partly cloudy day icon"
+                  src={PartlyCloudyDay}
+                />
+              </div>
+            );
+          }
+          if (user.icon === 'partly-cloudy-night') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img
+                  height="150"
+                  width="150"
+                  alt="Partly cloudy night icon"
+                  src={PartlyCloudyNight}
+                />
+              </div>
+            );
+          }
+          if (user.icon === 'rain') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img height="150" width="150" alt="Rain icon" src={Rain} />
+              </div>
+            );
+          }
+          if (user.icon === 'wind') {
+            return (
+              <div key={user.time} className="card container">
+                <h3>After {i * 3} hours</h3>
+                <h3>icon: {user.icon}</h3>
+                <h3>
+                  tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
+                </h3>
+                <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+                <img height="150" width="150" alt="Wind icon" src={Wind} />
+              </div>
+            );
+          }
+
+          return (
+            <div key={user.time} className="card container">
+              <h3>After {i * 3} hours</h3>
+              <h3>icon: {user.icon}</h3>
+              <h3>tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F</h3>
+              <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
+              <img height="150" width="150" alt="Snow icon" src={SnowSleet} />
+            </div>
+          );
+        })}
       </div>
     );
   }
