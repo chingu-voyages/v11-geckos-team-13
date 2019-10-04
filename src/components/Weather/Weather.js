@@ -24,22 +24,44 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-    const { API_KEY } = this.props;
+    const { API_KEY, IP_KEY } = this.props;
 
-    navigator.geolocation.getCurrentPosition(position => {
-      fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API_KEY}/${position.coords.latitude},${position.coords.longitude}?units=si`
-      )
-        .then(response => {
-          return response.json();
-        })
-        .then(myJson => {
-          return myJson.hourly.data;
-        })
-        .then(res => {
-          this.setState({ result: res });
-        });
-    });
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        fetch(
+          `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API_KEY}/${position.coords.latitude},${position.coords.longitude}?units=si`
+        )
+          .then(response => {
+            return response.json();
+          })
+          .then(myJson => {
+            return myJson.hourly.data;
+          })
+          .then(res => {
+            this.setState({ result: res });
+          });
+      },
+      () => {
+        fetch(`http://api.ipstack.com/check?access_key=${IP_KEY}`)
+          .then(response => {
+            return response.json();
+          })
+          .then(ipJson => {
+            fetch(
+              `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API_KEY}/${ipJson.latitude},${ipJson.longitude}?units=si`
+            )
+              .then(response => {
+                return response.json();
+              })
+              .then(myJson => {
+                return myJson.hourly.data;
+              })
+              .then(res => {
+                this.setState({ result: res });
+              });
+          });
+      }
+    );
   }
 
   updateTemp = event => {
@@ -1332,7 +1354,8 @@ class Weather extends Component {
 }
 
 Weather.propTypes = {
-  API_KEY: PropTypes.string.isRequired
+  API_KEY: PropTypes.string.isRequired,
+  IP_KEY: PropTypes.string.isRequired
 };
 
 export default Weather;
