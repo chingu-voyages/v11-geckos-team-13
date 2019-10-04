@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 import React from 'react';
 import './App.css';
 import TestState from '../context/test/TestState';
@@ -10,6 +12,7 @@ import './card.css';
 
 const CurrencyKey = process.env.REACT_APP_CURRENCY_API_KEY;
 const WeatherKey = process.env.REACT_APP_WEATHER_API_KEY;
+const IpKey = process.env.REACT_APP_IP_KEY;
 
 function App() {
   const link = 'hello internet';
@@ -25,7 +28,7 @@ function App() {
         </div>
       </TestState>
       <CurrencyConverter API_KEY={CurrencyKey} />
-      <Weather API_KEY={WeatherKey} />
+      <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
     </div>
   );
 }
