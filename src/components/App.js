@@ -17,19 +17,18 @@ const IpKey = process.env.REACT_APP_IP_KEY;
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <img src={banner} alt="banner" className="App-banner" />
       <Search className="App-Search" />
-      <div className="App">
-        <GoogleCalendar />
-      </div>
+      <GoogleCalendar />
+      <CurrencyConverter API_KEY={CurrencyKey} />
+      <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
+
       <div className="App-react-context">
         <TestState>
           <StateReceiver />
         </TestState>
       </div>
-      <CurrencyConverter API_KEY={CurrencyKey} />
-      <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
     </div>
   );
 }
