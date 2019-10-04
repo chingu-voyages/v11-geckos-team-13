@@ -16,3 +16,7 @@ body {
   position: relative;
   top: -25px;
 }
+
+.App-react-context {
+  display: none;
+}
