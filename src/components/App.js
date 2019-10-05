@@ -6,7 +6,8 @@ import TestState from '../context/test/TestState';
 import StateReceiver from './StateReceiver';
 import GoogleCalendar from './GoogleCalendar/GoogleCalendar';
 import Search from './Search/Search';
-import CurrencyConverter from './CurrencyConverter/Currency';
+import CurrencyUnformatted from './CurrencyConverter/Currency';
+import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
 import Weather from './Weather/Weather';
 import WeatherMultiple from './Weather/WeatherMultiple';
 import Pomodoro from './Pomodoro/Pomodoro';
@@ -25,12 +26,13 @@ function App() {
       <Weather className="App-Weather" />
       <Search className="App-Search" />
       <div className="App-features-grid">
-        <CurrencyConverter API_KEY={CurrencyKey} />
+        <CurrencyConverter />
         <TopSites />
         <Pomodoro className="App-Pomodoro" />
         <GoogleCalendar className="App-GoogleCalendar" />
       </div>
 
+      <CurrencyUnformatted API_KEY={CurrencyKey} />
       <WeatherMultiple IP_KEY={IpKey} API_KEY={WeatherKey} />
       <div className="App-react-context">
         <TestState>
