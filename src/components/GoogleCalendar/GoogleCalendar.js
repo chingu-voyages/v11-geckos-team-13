@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { PropTypes } from 'prop-types';
 import Card from '../Card/Card';
 import TodayEvents from './TodayEvents';
 
 import { getToken, getCalendarList } from './api';
 
-export default function GoogleCalendar() {
+function GoogleCalendar(props) {
+  const { className } = props;
   const [token, setToken] = useState('');
   const [events, setEvents] = useState([]);
 
@@ -21,7 +23,7 @@ export default function GoogleCalendar() {
   };
 
   return (
-    <Card>
+    <Card className={className}>
       <button type="button" onClick={handleLoadCalendarClick}>
         Load calendar
       </button>
@@ -29,3 +31,9 @@ export default function GoogleCalendar() {
     </Card>
   );
 }
+
+GoogleCalendar.propTypes = {
+  className: PropTypes.string.isRequired
+};
+
+export default GoogleCalendar;

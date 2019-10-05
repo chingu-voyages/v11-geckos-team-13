@@ -15,6 +15,7 @@
     ]
   },
   "permissions": [
-    "identity"
+    "identity",
+    "topSites"
   ]
 }

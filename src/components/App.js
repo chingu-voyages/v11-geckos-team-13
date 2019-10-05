@@ -10,6 +10,7 @@ import CurrencyConverter from './CurrencyConverter/Currency';
 import Weather from './Weather/Weather';
 import WeatherMultiple from './Weather/WeatherMultiple';
 import Pomodoro from './Pomodoro/Pomodoro';
+import TopSites from './TopSites/TopSites';
 import './card.css';
 import banner from '../app_banner.jpeg';
 
@@ -25,8 +26,9 @@ function App() {
       <Search className="App-Search" />
       <div className="App-features-grid">
         <CurrencyConverter API_KEY={CurrencyKey} />
-        <Pomodoro />
-        <GoogleCalendar />
+        <TopSites />
+        <Pomodoro className="App-Pomodoro" />
+        <GoogleCalendar className="App-GoogleCalendar" />
       </div>
 
       <WeatherMultiple IP_KEY={IpKey} API_KEY={WeatherKey} />
