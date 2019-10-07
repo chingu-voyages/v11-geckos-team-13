@@ -5,7 +5,7 @@ import '../card.css';
 import PropTypes from 'prop-types';
 import ClearDay from './icons/clear-day.svg';
 import ClearNight from './icons/clear-night.svg';
-import Cloud from './icons/cloud.svg';
+import Cloudy from './icons/cloudy.svg';
 import Fog from './icons/fog.svg';
 import PartlyCloudyDay from './icons/partly-cloudy-day.svg';
 import PartlyCloudyNight from './icons/partly-cloudy-night.svg';
@@ -132,7 +132,7 @@ class WeatherMultiple extends Component {
                   </div>
                 );
               }
-              if (user.icon === 'cloud') {
+              if (user.icon === 'cloudy') {
                 return (
                   <div key={user.time} className="card container">
                     <h3>Weather now</h3>
@@ -142,8 +142,8 @@ class WeatherMultiple extends Component {
                     <img
                       height="150"
                       width="150"
-                      alt="Cloud icon"
-                      src={Cloud}
+                      alt="Cloudy icon"
+                      src={Cloudy}
                     />
                   </div>
                 );
@@ -266,7 +266,7 @@ class WeatherMultiple extends Component {
                   </div>
                 );
               }
-              if (user.icon === 'cloud') {
+              if (user.icon === 'cloudy') {
                 return (
                   <div key={user.time} className="card container">
                     <h3>Weather now</h3>
@@ -278,8 +278,8 @@ class WeatherMultiple extends Component {
                     <img
                       height="150"
                       width="150"
-                      alt="Cloud icon"
-                      src={Cloud}
+                      alt="Cloudy icon"
+                      src={Cloudy}
                     />
                   </div>
                 );
@@ -413,7 +413,7 @@ class WeatherMultiple extends Component {
                   </div>
                 );
               }
-              if (user.icon === 'cloud') {
+              if (user.icon === 'cloudy') {
                 return (
                   <div key={user.time} className="card container">
                     <h3>Weather now</h3>
@@ -425,8 +425,8 @@ class WeatherMultiple extends Component {
                     <img
                       height="150"
                       width="150"
-                      alt="Cloud icon"
-                      src={Cloud}
+                      alt="Cloudy icon"
+                      src={Cloudy}
                     />
                   </div>
                 );
@@ -560,7 +560,7 @@ class WeatherMultiple extends Component {
                 </div>
               );
             }
-            if (user.icon === 'cloud') {
+            if (user.icon === 'cloudy') {
               return (
                 <div key={user.time} className="card container">
                   <h3>Weather now</h3>
@@ -569,7 +569,7 @@ class WeatherMultiple extends Component {
                     tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
                   <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
-                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                  <img height="150" width="150" alt="Cloudy icon" src={Cloudy} />
                 </div>
               );
             }
@@ -694,14 +694,14 @@ class WeatherMultiple extends Component {
                 </div>
               );
             }
-            if (user.icon === 'cloud') {
+            if (user.icon === 'cloudy') {
               return (
                 <div key={user.time} className="card container">
                   <h3>After {i * 3} hours</h3>
                   <h3>icon: {user.icon}</h3>
                   <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                   <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
-                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                  <img height="150" width="150" alt="Cloudy icon" src={Cloudy} />
                 </div>
               );
             }
@@ -818,7 +818,7 @@ class WeatherMultiple extends Component {
                 </div>
               );
             }
-            if (user.icon === 'cloud') {
+            if (user.icon === 'cloudy') {
               return (
                 <div key={user.time} className="card container">
                   <h3>After {i * 3} hours</h3>
@@ -827,7 +827,7 @@ class WeatherMultiple extends Component {
                     tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                   </h3>
                   <h3>wind speed: {user.windSpeed.toFixed(2)} m/s</h3>
-                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                  <img height="150" width="150" alt="Cloudy icon" src={Cloudy} />
                 </div>
               );
             }
@@ -951,14 +951,14 @@ class WeatherMultiple extends Component {
                 </div>
               );
             }
-            if (user.icon === 'cloud') {
+            if (user.icon === 'cloudy') {
               return (
                 <div key={user.time} className="card container">
                   <h3>After {i * 3} hours</h3>
                   <h3>icon: {user.icon}</h3>
                   <h3>tempreature: {user.temperature.toFixed(2)} C</h3>
                   <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
-                  <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                  <img height="150" width="150" alt="Cloudy icon" src={Cloudy} />
                 </div>
               );
             }
@@ -1076,7 +1076,7 @@ class WeatherMultiple extends Component {
               </div>
             );
           }
-          if (user.icon === 'cloud') {
+          if (user.icon === 'cloudy') {
             return (
               <div key={user.time} className="card container">
                 <h3>After {i * 3} hours</h3>
@@ -1085,7 +1085,7 @@ class WeatherMultiple extends Component {
                   tempreature: {(user.temperature * 1.8 + 32).toFixed(2)} F
                 </h3>
                 <h3>wind speed: {(user.windSpeed * 3.6).toFixed(2)} km/h</h3>
-                <img height="150" width="150" alt="Cloud icon" src={Cloud} />
+                <img height="150" width="150" alt="Cloudy icon" src={Cloudy} />
               </div>
             );
           }
