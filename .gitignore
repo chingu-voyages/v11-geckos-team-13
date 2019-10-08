@@ -1,0 +1,11 @@
+node_modules/
+build/
+
+# VSCode workspace settings
+.vscode/
+
+# Dotenv file (example file is tracked instead)
+.env
+
+# manifest.json (example file is tracked instead)
+public/manifest.json
