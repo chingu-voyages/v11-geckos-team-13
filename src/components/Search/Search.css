@@ -1,9 +1,0 @@
-input#search {
-  width: 60vw;
-  border-radius: 10px;
-  height: 40px;
-}
-
-input#search + input[type="submit"] {
-  height: 40px;
-}
