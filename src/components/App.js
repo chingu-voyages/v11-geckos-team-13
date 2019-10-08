@@ -6,10 +6,8 @@ import TestState from '../context/test/TestState';
 import StateReceiver from './StateReceiver';
 import GoogleCalendar from './GoogleCalendar/GoogleCalendar';
 import Search from './Search/Search';
-import CurrencyUnformatted from './CurrencyConverter/Currency';
-import CurrencyConverter from './CurrencyConverter/CurrencyConverter';
+import Currency from './CurrencyConverter/Currency';
 import Weather from './Weather/Weather';
-import WeatherMultiple from './Weather/WeatherMultiple';
 import Pomodoro from './Pomodoro/Pomodoro';
 import TopSites from './TopSites/TopSites';
 import './card.css';
@@ -23,17 +21,15 @@ function App() {
   return (
     <div className="App">
       <img src={banner} alt="banner" className="App-banner" />
-      <Weather className="App-Weather" />
+      <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
       <Search className="App-Search" />
       <div className="App-features-grid">
-        <CurrencyConverter />
+        <Currency API_KEY={CurrencyKey} />
         <TopSites />
         <Pomodoro className="App-Pomodoro" />
         <GoogleCalendar className="App-GoogleCalendar" />
       </div>
 
-      <CurrencyUnformatted API_KEY={CurrencyKey} />
-      <WeatherMultiple IP_KEY={IpKey} API_KEY={WeatherKey} />
       <div className="App-react-context">
         <TestState>
           <StateReceiver />

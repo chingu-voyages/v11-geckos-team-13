@@ -38,7 +38,8 @@ body {
   overflow-y: scroll;
 }
 
-.App-Weather.Card {
+.App-Weather {
+    overflow-y:scroll;
   position: absolute;
   top: 20px;
   right: 100px;

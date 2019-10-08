@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import '../card.css';
 import PropTypes from 'prop-types';
+import Get from './icons/get.png';
+import Swap from './icons/swap.png';
 
 class Currency extends Component {
   constructor() {
@@ -87,8 +89,7 @@ class Currency extends Component {
   render() {
     const { allCurrencies, result } = this.state;
     return (
-      <div className="card container">
-        <h2>Currency Converter</h2>
+      <div className="card container currency">
         <select className="list" onChange={this.updateFirst}>
           {Object.keys(allCurrencies).map(i => {
             return (
@@ -119,10 +120,10 @@ class Currency extends Component {
         />
 
         <button className="button" type="button" onClick={this.handleClick}>
-          Get Value
+          <img height="20" width="20" alt="Get value" src={Get} />
         </button>
         <button className="button" type="button" onClick={this.handleSwap}>
-          Swap
+          <img height="20" width="20" alt="Swap" src={Swap} />
         </button>
 
         <h4>{result}</h4>
