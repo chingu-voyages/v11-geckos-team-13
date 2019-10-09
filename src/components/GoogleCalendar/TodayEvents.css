@@ -1,7 +1,17 @@
-.TodayEvents-container {
-}
-
 .TodayEvents-container .card-event {
   background-color: #FFF;
   margin: 10px auto;
+  position: relative;
+}
+
+.TodayEvents-container .card-event-date {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 12px;
+}
+
+.TodayEvents-container .card-event-summary {
+  margin-top: 10px;
+  font-weight: bold;
 }
