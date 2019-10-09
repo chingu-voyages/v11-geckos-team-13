@@ -38,6 +38,10 @@ body {
   overflow-y: scroll;
 }
 
+.App-features-grid > .Card h1.card-title {
+  margin-top: 0px;
+}
+
 .App-Weather {
     overflow-y:scroll;
   position: absolute;
