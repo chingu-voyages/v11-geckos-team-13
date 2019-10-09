@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card from '../Card/Card';
 import './TodayEvents.css';
 
 function TodayEvents(props) {
@@ -8,7 +9,7 @@ function TodayEvents(props) {
     <div className="TodayEvents-container">
       {events.length !== 0 &&
         events.map(event => (
-          <div key={event.id}>
+          <Card className="card-event" key={event.id}>
             <div>{event.summary}</div>
             <div>{event.description}</div>
             {event.start.dateTime && (
@@ -23,7 +24,7 @@ function TodayEvents(props) {
             )}
             {event.start.date && <div>Date: {event.start.date}</div>}
             <br />
-          </div>
+          </Card>
         ))}
     </div>
   );

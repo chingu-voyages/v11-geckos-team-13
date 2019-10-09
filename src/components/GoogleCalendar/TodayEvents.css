@@ -1,2 +1,7 @@
 .TodayEvents-container {
 }
+
+.TodayEvents-container .card-event {
+  background-color: #FFF;
+  margin: 10px auto;
+}
