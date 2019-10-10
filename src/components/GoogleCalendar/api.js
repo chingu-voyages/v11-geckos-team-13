@@ -60,19 +60,21 @@ export const getCalendarList = async token => {
     Accept: 'application/json'
   };
 
-  const timeMin = new Date().toISOString();
+  const timeJS = new Date();
+  const timeMin = timeJS.toISOString();
+  timeJS.setDate(timeJS.getDate() + 1);
+  const timeMax = timeJS.toISOString();
   const showDeleted = false;
   const singleEvents = true;
-  const maxResults = 10;
   const orderBy = 'startTime';
 
   const url =
     'https://www.googleapis.com/calendar/v3/calendars/primary/events?' +
     `key=${API_KEY}` +
     `&timeMin=${timeMin}` +
+    `&timeMax=${timeMax}` +
     `&showDeleted=${showDeleted}` +
     `&singleEvents=${singleEvents}` +
-    `&maxResults=${maxResults}` +
     `&orderBy=${orderBy}`;
 
   const response = await axios.get(url, { headers });

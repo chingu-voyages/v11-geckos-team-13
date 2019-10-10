@@ -24,6 +24,7 @@ function GoogleCalendar(props) {
 
   return (
     <Card className={className}>
+      <h1 className="card-title">Today Events</h1>
       <button type="button" onClick={handleLoadCalendarClick}>
         Load calendar
       </button>
