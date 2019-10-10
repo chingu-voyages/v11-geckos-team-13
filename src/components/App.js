@@ -8,7 +8,7 @@ import GoogleCalendar from './GoogleCalendar/GoogleCalendar';
 import Search from './Search/Search';
 import Currency from './CurrencyConverter/Currency';
 import Weather from './Weather/Weather';
-import Pomodoro from './Pomodoro/Pomodoro';
+import Timer from './Timer/Timer';
 import TopSites from './TopSites/TopSites';
 import './card.css';
 import banner from '../app_banner.jpeg';
@@ -26,7 +26,7 @@ function App() {
       <div className="App-features-grid">
         <Currency API_KEY={CurrencyKey} />
         <TopSites />
-        <Pomodoro className="App-Pomodoro" />
+        <Timer />
         <GoogleCalendar className="App-GoogleCalendar" />
       </div>
 
