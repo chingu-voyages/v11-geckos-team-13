@@ -13,7 +13,6 @@ import TopSites from './TopSites/TopSites';
 import './card.css';
 import banner from '../app_banner.jpeg';
 
-const CurrencyKey = process.env.REACT_APP_CURRENCY_API_KEY;
 const WeatherKey = process.env.REACT_APP_WEATHER_API_KEY;
 const IpKey = process.env.REACT_APP_IP_KEY;
 
@@ -24,7 +23,7 @@ function App() {
       <Weather IP_KEY={IpKey} API_KEY={WeatherKey} />
       <Search className="App-Search" />
       <div className="App-features-grid">
-        <Currency API_KEY={CurrencyKey} />
+        <Currency />
         <TopSites />
         <Timer className="App-Pomodoro" />
         <GoogleCalendar className="App-GoogleCalendar" />
