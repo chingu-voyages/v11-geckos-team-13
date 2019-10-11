@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import '../card.css';
-import PropTypes from 'prop-types';
 import Card from '../Card/Card';
 import Get from './icons/get.png';
 import Swap from './icons/swap.png';
@@ -21,28 +20,25 @@ class Currency extends Component {
   }
 
   componentDidMount() {
-    const { API_KEY } = this.props;
-    const link = `https://free.currconv.com/api/v7/currencies?apiKey=${API_KEY}`;
+    const link = `https://cors-anywhere.herokuapp.com/https://api.exchangeratesapi.io/latest?base=IDR`;
     fetch(link)
       .then(response => {
         return response.json();
       })
       .then(myJson => {
-        this.setState({ allCurrencies: myJson.results });
+        this.setState({ allCurrencies: myJson.rates });
       });
   }
 
   handleClick = () => {
-    const { API_KEY } = this.props;
     const { one, two, amount } = this.state;
-    const format = `${one}_${two}`;
-    const link = `https://free.currconv.com/api/v7/convert?q=${one}_${two},${two}_${one}&compact=ultra&apiKey=${API_KEY}`;
+    const link = `https://cors-anywhere.herokuapp.com/https://api.exchangeratesapi.io/latest?base=${one}`;
     fetch(link)
       .then(response => {
         return response.json();
       })
       .then(myJson => {
-        return myJson[format];
+        return myJson.rates[two];
       })
       .then(price => {
         this.setState({
@@ -64,20 +60,18 @@ class Currency extends Component {
   };
 
   handleSwap = () => {
-    const { API_KEY } = this.props;
     const { one, two, amount, swap } = this.state;
     this.setState({ swap: !swap });
     if (swap === false) {
       this.handleClick();
     } else {
-      const format = `${two}_${one}`;
-      const link = `https://free.currconv.com/api/v7/convert?q=${two}_${one},${one}_${two}&compact=ultra&apiKey=${API_KEY}`;
+      const link = `https://cors-anywhere.herokuapp.com/https://api.exchangeratesapi.io/latest?base=${two}`;
       fetch(link)
         .then(response => {
           return response.json();
         })
         .then(myJson => {
-          return myJson[format];
+          return myJson.rates[one];
         })
         .then(price => {
           this.setState({
@@ -93,23 +87,19 @@ class Currency extends Component {
       <Card>
         <div className="container currency">
           <select className="list" onChange={this.updateFirst}>
-            {Object.keys(allCurrencies).map(i => {
+            {Object.keys(allCurrencies).map(single => {
               return (
-                <option key={allCurrencies[i].id} value={allCurrencies[i].id}>
-                  {allCurrencies[i].id}
+                <option key={single} value={single}>
+                  {single}
                 </option>
               );
             })}
           </select>
           <select className="list" onChange={this.updateSecond}>
-            {Object.keys(allCurrencies).map(i => {
+            {Object.keys(allCurrencies).map(single => {
               return (
-                <option
-                  className="single"
-                  key={allCurrencies[i].id}
-                  value={allCurrencies[i].id}
-                >
-                  {allCurrencies[i].id}
+                <option className="single" key={single} value={single}>
+                  {single}
                 </option>
               );
             })}
@@ -134,9 +124,5 @@ class Currency extends Component {
     );
   }
 }
-
-Currency.propTypes = {
-  API_KEY: PropTypes.string.isRequired
-};
 
 export default Currency;
