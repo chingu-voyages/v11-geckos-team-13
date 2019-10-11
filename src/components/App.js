@@ -26,7 +26,7 @@ function App() {
       <div className="App-features-grid">
         <Currency API_KEY={CurrencyKey} />
         <TopSites />
-        <Timer />
+        <Timer className="App-Pomodoro" />
         <GoogleCalendar className="App-GoogleCalendar" />
       </div>
 
