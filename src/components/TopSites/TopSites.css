@@ -1,0 +1,28 @@
+.TopSites-Card > * {
+  display: inline-block;
+}
+
+.SiteElement {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 5px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.SiteElement:hover {
+  background-color: #99d8d0;
+  opacity: 0.3;
+}
+
+.SiteElement > .SiteElement-title {
+  margin-bottom: 10px;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.SiteElement > .SiteElement-img {
+  width: 25px;
+}
