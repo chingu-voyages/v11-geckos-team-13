@@ -1,8 +1,5 @@
-
-
 .card {
   /* Add shadows to create the "card" effect */
-
   display: block;
   background-color: #99d8d0;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -10,7 +7,6 @@
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
-
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -18,36 +14,30 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.currency{
-  width: 370px;
+.button {
+  border-radius: 25px;
+  width: 40%;
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
-
-
-  .button {
-      border-radius: 25px;
-    width: 40%;
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
-
 
 .button:hover {
   background-color: #3c70a4;
- color: white;
+  color: white;
 }
 
 input[type=text] {
-    border-radius: 25px;
+  border-radius: 25px;
   width: 100%;
   padding: 4px 8px;
   margin: 4px 0;
@@ -56,18 +46,18 @@ input[type=text] {
   border-bottom: 2px solid black;
 }
 
-.list{
-    border-radius: 25px;
+.list {
+  border-radius: 25px;
   height : 20px;
   width: 50%;
 }
 
-h2{
+h2 {
   font-size: 26px;
   text-align: center;
   margin: 15px;
-    font-family: 'Tourmaline Printed';
-    color: #fefdca;
+  font-family: 'Tourmaline Printed';
+  color: #fefdca;
 }
 
 h4 {
@@ -77,9 +67,7 @@ h4 {
   color: black;
 }
 
-.weatherCard{
-
+.weatherCard {
   display: inline-block;
-    margin-left: 20px;
-
+  margin-left: 20px;
 }

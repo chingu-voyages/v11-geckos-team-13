@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import '../card.css';
 import PropTypes from 'prop-types';
+import Card from '../Card/Card';
 import Get from './icons/get.png';
 import Swap from './icons/swap.png';
 
@@ -89,45 +90,47 @@ class Currency extends Component {
   render() {
     const { allCurrencies, result } = this.state;
     return (
-      <div className="card container currency">
-        <select className="list" onChange={this.updateFirst}>
-          {Object.keys(allCurrencies).map(i => {
-            return (
-              <option key={allCurrencies[i].id} value={allCurrencies[i].id}>
-                {allCurrencies[i].id}
-              </option>
-            );
-          })}
-        </select>
-        <select className="list" onChange={this.updateSecond}>
-          {Object.keys(allCurrencies).map(i => {
-            return (
-              <option
-                className="single"
-                key={allCurrencies[i].id}
-                value={allCurrencies[i].id}
-              >
-                {allCurrencies[i].id}
-              </option>
-            );
-          })}
-        </select>
-        <input
-          placeholder="Enter amount"
-          type="text"
-          id="amount"
-          onChange={this.updateAmount}
-        />
+      <Card>
+        <div className="container currency">
+          <select className="list" onChange={this.updateFirst}>
+            {Object.keys(allCurrencies).map(i => {
+              return (
+                <option key={allCurrencies[i].id} value={allCurrencies[i].id}>
+                  {allCurrencies[i].id}
+                </option>
+              );
+            })}
+          </select>
+          <select className="list" onChange={this.updateSecond}>
+            {Object.keys(allCurrencies).map(i => {
+              return (
+                <option
+                  className="single"
+                  key={allCurrencies[i].id}
+                  value={allCurrencies[i].id}
+                >
+                  {allCurrencies[i].id}
+                </option>
+              );
+            })}
+          </select>
+          <input
+            placeholder="Enter amount"
+            type="text"
+            id="amount"
+            onChange={this.updateAmount}
+          />
 
-        <button className="button" type="button" onClick={this.handleClick}>
-          <img height="20" width="20" alt="Get value" src={Get} />
-        </button>
-        <button className="button" type="button" onClick={this.handleSwap}>
-          <img height="20" width="20" alt="Swap" src={Swap} />
-        </button>
+          <button className="button" type="button" onClick={this.handleClick}>
+            <img height="20" width="20" alt="Get value" src={Get} />
+          </button>
+          <button className="button" type="button" onClick={this.handleSwap}>
+            <img height="20" width="20" alt="Swap" src={Swap} />
+          </button>
 
-        <h4>{result}</h4>
-      </div>
+          <h4>{result}</h4>
+        </div>
+      </Card>
     );
   }
 }
